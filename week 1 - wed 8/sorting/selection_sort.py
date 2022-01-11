@@ -17,23 +17,23 @@ def selectionSort(items) :
 selectionSort([4,7,2,7,9,5,3,1,6])
 
 
-class Solution: 
-    def select(self, arr, i):
-        # code here 
-        for i in range(len(arr)):
-            smallestValueIndex =i
-            for j in range(len(arr)):
-                if arr[j] < arr[smallestValueIndex]:
-                    smallestValueIndex = j
-            return smallestValueIndex
+
+def select( arr, i):
+    # code here 
+    for i in range(len(arr)):
+        smallestValueIndex =i
+        for j in range(len(arr)):
+            if arr[j] < arr[smallestValueIndex]:
+                smallestValueIndex = j
+        return smallestValueIndex
                 
-    
-    def selectionSort(self, arr,n):
-        #code here
-        for i in range(n-1):
-            smallestValueIndex = i
-            for j in range(i,n):
-                if arr[j]<arr[smallestValueIndex]:
-                    smallestValueIndex = j
-            arr[smallestValueIndex],arr[i]= arr[i],arr[smallestValueIndex]
-        return arr
+
+def selectionSort( arr,n):
+    #code here
+    for i in range(n-1):
+        smallestValueIndex = i
+        for j in range(i,n):
+            if arr[j]<arr[smallestValueIndex]:
+                smallestValueIndex = j
+        arr[smallestValueIndex],arr[i]= arr[i],arr[smallestValueIndex]
+    return arr
