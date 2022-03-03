@@ -1,4 +1,4 @@
-from ast import List
+from typing import List
 
 
 def moveZeroes(self, nums: List[int]) -> None:

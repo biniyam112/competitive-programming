@@ -1,4 +1,4 @@
-from ast import List
+from typing import List
 
 
 def numRescueBoats(self, people: List[int], limit: int) -> int:

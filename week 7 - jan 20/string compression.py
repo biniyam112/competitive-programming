@@ -1,4 +1,4 @@
-from ast import List
+from typing import List
 
 
 def compress(self, chars: List[str]) -> int:

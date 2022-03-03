@@ -1,4 +1,4 @@
-    from typing import List
+from typing import List
 
 
 def nextGreaterElement(  nums1: List[int], nums2: List[int]) -> List[int]:

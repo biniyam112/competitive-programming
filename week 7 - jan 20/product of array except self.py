@@ -1,4 +1,4 @@
-from ast import List
+from typing import List
 
 
 def productExceptSelf(self, nums: List[int]) -> List[int]:
