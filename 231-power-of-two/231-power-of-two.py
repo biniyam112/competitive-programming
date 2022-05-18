@@ -12,8 +12,6 @@ class Solution:
                 counter+=1
                 if counter > 1:
                     return False
-        if counter == 0:
-            return False
         return True
         
         
