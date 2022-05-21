@@ -19,7 +19,6 @@ class Solution:
                 if coin+i not in visited and coin+i <= amount:
                     visited.add(coin+i)
                     queue.append(coin+i)
-            # print(queue,generation)
             if counter == 0:
                 generation += 1
                 counter = len(queue)
