@@ -16,6 +16,7 @@ class Solution:
             coin = queue.popleft()
             counter -=1
             for i in coins:
+			#use visited not to go for numbers already seen since they are seen before means their generation is better earlier
                 if coin+i not in visited and coin+i <= amount:
                     visited.add(coin+i)
                     queue.append(coin+i)
@@ -23,8 +24,10 @@ class Solution:
                 generation += 1
                 counter = len(queue)
             if amount in visited:
+			#if amount is found in new generation just return the generaion 
                 if counter == len(queue):
                     return generation
+				#if amount is in generation not yet counted add one to generation count
                 return generation+1
         return -1
         
