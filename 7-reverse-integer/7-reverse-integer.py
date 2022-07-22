@@ -12,7 +12,8 @@ class Solution:
         num = 0
         for i in range(len(digits)):
             num += digits[i] * 10**(len(digits)-i-1)
-        if num > (2 ** 31)-1 or num < -2 **31:
+        print(bin(num))
+        if len(bin(num))-2 >= 32:
             return 0
         return int(sign * num)
         
