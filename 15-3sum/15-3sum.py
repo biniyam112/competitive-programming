@@ -1,42 +1,32 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        negative = []
-        positive = []
-        zero = []
+        nums.sort()
+        output = []
+        i = 0
+        while i < len(nums):
+            j = i+1
+            k = len(nums)-1
+            while j < k:
+                curSum = nums[i] + nums[j] + nums[k]
+                if curSum == 0:
+                    output.append([nums[i],nums[j],nums[k]])
+                    while j < k and nums[j] == nums[j+1]:
+                        j+=1
+                    j+=1
+                    while k > j and nums[k] == nums[k-1]:
+                        k-=1
+                    k-=1
+                elif curSum < 0:
+                    while j < k and nums[j] == nums[j+1]:
+                        j+=1
+                    j+=1
+                else:
+                    while k > j and nums[k] == nums[k-1]:
+                        k-=1
+                    k-=1
+            while i < len(nums)-1 and nums[i] == nums[i+1]:
+                i+=1
+            i+=1
+        return output
+                    
         
-        
-        result = set()
-        
-        for i in nums:
-            if i<0:
-                negative.append(i)
-            elif i>0:
-                positive.append(i)
-            else:
-                zero.append(i)
-        
-        negativeSet, positiveSet = set(negative), set(positive)
-        
-        if zero:
-            for i in positive:
-                if -i in negativeSet:
-                    result.add((i,0,-i))
-            
-        if len(zero)>=3:
-            result.add((0,0,0))
-            
-        for i in range(len(negative)):
-            for j in range(i+1,len(negative)):
-                sums = negative[i]+negative[j]
-                
-                if -sums in positiveSet:
-                    result.add(tuple(sorted([negative[i], -sums, negative[j]])))
-        
-        for i in range(len(positive)):
-            for j in range(i+1,len(positive)):
-                sums = positive[i]+positive[j]
-                
-                if -sums in negativeSet:
-                    result.add(tuple(sorted([positive[i], -sums, positive[j]])))
-        
-        return result
