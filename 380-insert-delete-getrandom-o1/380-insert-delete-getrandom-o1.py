@@ -6,7 +6,6 @@ class RandomizedSet:
         
 
     def insert(self, val: int) -> bool:
-        output = False
         if val not in self.freq or self.freq[val] == 0:
             self.freq[val] = 1
             self.ets.append(val)
@@ -15,12 +14,10 @@ class RandomizedSet:
         
 
     def remove(self, val: int) -> bool:
-        output = False
         if val not in self.freq or self.freq[val] == 0:
             return False
-        else:
-            self.freq[val] -= 1
-            return True
+        self.freq[val] -= 1
+        return True
         
 
     def getRandom(self) -> int:
