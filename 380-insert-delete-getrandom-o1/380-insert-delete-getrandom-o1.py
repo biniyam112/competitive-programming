@@ -1,47 +1,34 @@
 class RandomizedSet:
 
     def __init__(self):
-        self.container = {}
-        self.removed = {}
-        self.lista = []
+        self.freq = {}
+        self.ets = []
         
 
     def insert(self, val: int) -> bool:
         output = False
-        if val not in self.container:
-            self.container[val] = 1
-            self.lista.append(val)
-            output = True
-        elif val not in self.removed:
-            return False
-        elif self.container[val] == self.removed[val]:
-            self.container[val] += 1
-            output = True
-        return output
+        if val not in self.freq or self.freq[val] == 0:
+            self.freq[val] = 1
+            self.ets.append(val)
+            return True
+        return False
         
 
     def remove(self, val: int) -> bool:
         output = False
-        if val not in self.container:
+        if val not in self.freq or self.freq[val] == 0:
             return False
-        if val in self.container and (val not in self.removed or self.container[val] > self.removed[val]):
-            output = True
-            if val not in self.removed:
-                self.removed[val] = 1
-            else:
-                self.removed[val] += 1
-        return output
+        else:
+            self.freq[val] -= 1
+            return True
         
 
     def getRandom(self) -> int:
         while True:
-            rand = random.randint(0,len(self.lista)-1)
-            if self.lista[rand] not in self.removed:
-                return self.lista[rand]
-            elif self.container[self.lista[rand]] > self.removed[self.lista[rand]]:
-                return self.lista[rand]
+            rand = random.randint(0,len(self.ets)-1)
+            if self.freq[self.ets[rand]] == 1:
+                return self.ets[rand]
                 
-        
         
 
 
