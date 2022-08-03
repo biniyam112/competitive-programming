@@ -16,12 +16,6 @@ class MyCalendar:
                 self.interval.append((start,end))
                 return True
             elif start >= self.interval[index-1][1] and end <= self.interval[index][0]:
-                # current = self.interval[index]
-                # prev = (start,end)
-                # for i in range(index,len(self.interval)-1):
-                #     self.interval[i] = self.interval[index]
-                #     current = self.interval[i+1]
-                # self.interval.append(current)
                 self.interval.insert(index,(start,end))
                 return True
             return False
